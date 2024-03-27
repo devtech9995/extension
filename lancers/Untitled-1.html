@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+<script>
+var subjectObject = {
+  "システム開発・運用": [
+    "Web・システム開発",
+    "Webシステム開発・プログラミング", 
+    "ソフトウェア・業務システム開発",
+    "Excelマクロ作成・VBA開発",
+    "ゲーム制作・開発",
+    "サーバー・ネットワーク構築",
+    "データベース設計・構築",
+    "ハードウェア設計・IoT開発",
+    "プロジェクトマネジメント",
+    "その他(システム開発)",
+    "スマホアプリ・モバイル開発",
+    "iPhoneアプリ・iPadアプリ開発",
+    "iPhoneゲーム開発",
+    "Androidアプリ開発",
+    "Androidゲーム開発",
+    "携帯アプリ・モバイル開発",
+    "アプリケーション開発",
+    "Facebookアプリ開発",    
+    "Windowsアプリケーション開発",    
+    "Macアプリケーション開発",    
+    "運用・管理・保守",
+    "システム管理・保守・運用",    
+    "サーバー管理・保守",    
+    "セキュリティ対策",    
+    "テスト・デバック・検証・品質評価",    
+    "データクレンジング"   
+  ],
+  "Back-end": {
+    "PHP": ["Variables", "Strings", "Arrays"],
+    "SQL": ["SELECT", "UPDATE", "DELETE"]
+  }
+}
+window.onload = function() {
+  var subjectSel = document.getElementById("subject");
+  var topicSel = document.getElementById("topic");
+  for (var x in subjectObject) {
+    subjectSel.options[subjectSel.options.length] = new Option(x);
+  }
+  subjectSel.onchange = function() {
+    //empty Chapters- and Topics- dropdowns
+    chapterSel.length = 1;
+    topicSel.length = 1;
+    //display correct values
+    for (var y in subjectObject[this.value]) {
+      topicSel.options[topicSel.options.length] = new Option(y);
+    }
+  }
+}
+</script>
+</head>   
+<body>
+
+<h1>Cascading Dropdown Example</h1>
+
+Subjects: <select name="subject" id="subject">
+    <option value="" selected="selected">Select subject</option>
+  </select>
+Topics: <select name="topic" id="topic">
+    <option value="" selected="selected">Please select subject first</option>
+  </select>
+  <br><br>
+  <input type="submit" value="Submit">  
+
+
+</body>
+</html>
